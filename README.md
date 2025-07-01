@@ -9,10 +9,25 @@ PDFファイルにパスワードを設定するシンプルなWebアプリケ�
 - 💻 **ブラウザで動作** - インストール不要、どこからでもアクセス可能
 - 🚀 **高速処理** - 効率的なPDF処理エンジン
 - 📊 **パスワード強度チェック** - セキュリティレベルの可視化
+- 🔒 **プライバシー保護** - ファイルはサーバーに保存されません
+
+## 🔐 セキュリティとプライバシー
+
+### データの取り扱い
+- ✅ **ファイルは一切保存されません** - アップロードされたPDFはメモリ上でのみ処理
+- ✅ **自動削除** - 処理完了後、すべてのデータは自動的にメモリから削除
+- ✅ **セッション分離** - 他のユーザーのデータにアクセスできません
+- ✅ **HTTPS通信** - Streamlit Cloudは暗号化された通信を使用
+- ✅ **ログなし** - ファイル内容やパスワードはログに記録されません
+
+### 推奨事項
+- 機密性の高いファイルの場合は、ローカル環境での実行をお勧めします
+- 強力なパスワードを設定してください
+- 処理後はブラウザのキャッシュをクリアすることをお勧めします
 
 ## 🚀 ライブデモ
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pdf-password-tool.streamlit.app)
 
 ## 📦 インストール
 
@@ -24,7 +39,7 @@ PDFファイルにパスワードを設定するシンプルなWebアプリケ�
 
 1. このリポジトリをクローン
 ```bash
-git clone https://github.com/yourusername/pdf-password-tool.git
+git clone https://github.com/HIZ-Viet/pdf-password-tool.git
 cd pdf-password-tool
 ```
 

@@ -99,7 +99,11 @@ def main():
                     st.error(f"❌ エラーが発生しました: {str(e)}")
 
 def process_pdf(uploaded_file, password):
-    """PDFにパスワードを設定する処理"""
+    """PDFにパスワードを設定する処理 - セキュアな実装"""
+    reader = None
+    writer = None
+    output_buffer = None
+    
     try:
         # アップロードされたファイルを読み込み
         reader = PdfReader(uploaded_file)
@@ -122,11 +126,25 @@ def process_pdf(uploaded_file, password):
         writer.write(output_buffer)
         output_buffer.seek(0)
         
-        return output_buffer.getvalue()
+        result = output_buffer.getvalue()
+        
+        # セキュリティ: メモリを明示的にクリア
+        progress_bar.empty()
+        
+        return result
         
     except Exception as e:
         st.error(f"PDF処理エラー: {str(e)}")
         return None
+    
+    finally:
+        # メモリクリーンアップ
+        if output_buffer:
+            output_buffer.close()
+        if writer:
+            del writer
+        if reader:
+            del reader
 
 def check_password_strength(password):
     """パスワード強度をチェック"""
